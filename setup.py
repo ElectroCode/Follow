@@ -9,9 +9,8 @@ setup(name="",
       long_description="",
       author="Ken Spencer",
       author_email="ken@electrocode.net",
-      url=url,
-      download_url=download_url,
-      py_modules=['follow'],
+      url="https://github.com/ElectroCode/Follow",
+      packages=["follow"]
       classifiers=[
         'Development Status :: 3 - Alpha',
         #"Development Status :: 4 - Beta",

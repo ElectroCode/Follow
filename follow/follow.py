@@ -1,37 +1,25 @@
 #!/usr/bin/env python
-
 """
 Follow class implements "tail -f" functionality to incrementally
 read text and binary files as they grow.
 """
-
-__author__ = "Phil Budne"
-__revision__ = "$Revision: 1.5 $"
+# Copyright (C) 2017 - Ken Spencer
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+__author__ = "Ken Spencer"
 __version__ = '0.2'
 
-#       Copyright (c) 2010 Philip Budne (phil@ultimate.com)
-#       Licensed under the MIT licence: 
-#       
-#       Permission is hereby granted, free of charge, to any person
-#       obtaining a copy of this software and associated documentation
-#       files (the "Software"), to deal in the Software without
-#       restriction, including without limitation the rights to use,
-#       copy, modify, merge, publish, distribute, sublicense, and/or sell
-#       copies of the Software, and to permit persons to whom the
-#       Software is furnished to do so, subject to the following
-#       conditions:
-#       
-#       The above copyright notice and this permission notice shall be
-#       included in all copies or substantial portions of the Software.
-#       
-#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-#       EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-#       OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-#       NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-#       HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-#       WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-#       FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-#       OTHER DEALINGS IN THE SOFTWARE.
 
 import os
 import time
@@ -87,7 +75,7 @@ class Follow(object):
         """internal method to call after attempting to read"""
         if result:
             self.pos = self.file.tell()
-            
+
     def readline(self):
         """returns next line from the file, as a string.
            returns empty string if no additional data currently available."""
@@ -117,32 +105,3 @@ class Follow(object):
         if self.file:
             self.file.close()
             self.file = None
-
-def test():
-    """test routine"""
-    import sys
-
-    files = [ (path, Follow(path)) for path in sys.argv[1:] ]
-
-    if not files:
-        print "Usage: follow.py files ...."
-        sys.exit(1)
-
-    inisleep = 0.25
-    sleep = inisleep
-    while True:
-        lines = False
-        for fname, filep in files:
-            line = filep.readline()
-            if line:
-                lines = True
-                sys.stdout.write("%s: %s" % (fname, line))
-                sleep = inisleep
-        if not lines:
-            time.sleep(sleep)
-            sleep *= 2
-            if sleep > 10:
-                sleep = inisleep
-
-if __name__ == "__main__":
-    test()
