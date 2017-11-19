@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: follow
+Version: 0.2
+Summary: Follow class implements "tail -f" functionality to incrementally
+read text and binary files as they grow.
+Home-page: http://www.ultimate.com/phil/python/#follow
+Author: Phil Budne
+Author-email: phil@ultimate.com
+License: MIT
+Download-URL: http://www.ultimate.com/phil/python/download/follow-0.2.tar.gz
+Description: UNKNOWN
+Platform: Any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

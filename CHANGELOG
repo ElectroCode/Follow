@@ -1,0 +1,13 @@
+2011-05-04  Phil Budne <phil@ultimate.com>
+	setup.py: Fixed download_url
+	Resubmitted to PyPI as v0.2
+
+2010-02-02  Phil Budne <phil@ultimate.com>
+	Picked pylint
+	Submitted to PyPI as v0.2
+
+2010-01-31  Phil Budne <phil@ultimate.com>
+	Submitted to PyPI as v0.1
+
+2010-01-22  Phil Budne <phil@ultimate.com>
+	Initial checkin
